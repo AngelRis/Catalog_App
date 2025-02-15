@@ -1,0 +1,20 @@
+<div class="card shadow my-5" style="width: 800px">
+    <div class="row p-4 g-0">
+      <div class="col-md-4 d-flex justify-item-center justify-content-center">
+        <img [src]="product().image" width="120px" height="120px" [alt]="product().title">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+            <h5 class="card-title">{{product().title}}</h5>
+            <p class="card-text"><strong>Price: </strong> {{ product().price | currency: 'MKD' }}</p>
+            <p class="card-text"><strong>Category: </strong> {{ product().category }}</p>
+            <p class="card-text"><strong>Rating: </strong> <b [class]="product().rating.rate>3?'text-success':'text-warning'">{{ product().rating.rate }}</b></p>
+        </div>
+      </div>
+      <div class="col-md-2 d-flex">
+        <button class="btn mt-auto btn-danger rounded-5 w-100 "  (click)="favoritesService.removeProduct(product().id)">Remove</button>
+      </div>
+
+
+    </div>
+  </div>

@@ -1,0 +1,11 @@
+<div class="card shadow mx-4 my-4" style="width: 300px; height: 500px;">
+    <img [src]="product().image" width="150px" height="150px" class="mx-auto my-4" [alt]="product().title">
+    <div class="card-body text-center">
+        <h5 class="card-title">{{product().title}}</h5>
+        <p class="card-text"><strong>Price: </strong> {{ product().price | currency: 'MKD' }}</p>
+        <p class="card-text"><strong>Category: </strong> {{ product().category }}</p>
+        <p class="card-text"><strong>Rating: </strong> <b [class]="product().rating.rate>3?'text-success':'text-warning'">{{ product().rating.rate }}</b></p>
+        <button class="rounded-5 mt-auto btn btn-primary" (click)="favoritesService.addToFavorite(product())" [disabled]="isFavorite(product().id)">Add to Favorite</button>
+    </div>
+
+</div>

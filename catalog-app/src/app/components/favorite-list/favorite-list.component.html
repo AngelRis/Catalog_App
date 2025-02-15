@@ -1,0 +1,12 @@
+    <mat-dialog-content>
+        <button class=" d-flex btn btn-secondary ms-auto rounded-5" mat-button mat-dialog-close>Cancel</button>
+        <h2 class="text-center my-4 ">Favorites</h2>
+        @if (favoritesService.favorites().length===0) {
+            <h5 class="text-center my-4">You haven't added any favorite products...</h5>
+        }
+        @for (product of favoritesService.favorites(); track product.id) {
+            <div >
+                <app-favorite-product-card [product]="product"></app-favorite-product-card>
+            </div>
+        }
+    </mat-dialog-content>

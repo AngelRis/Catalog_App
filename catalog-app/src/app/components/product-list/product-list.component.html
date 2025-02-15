@@ -1,0 +1,9 @@
+<div class="container my-4">
+<div class="d-flex justify-content-center mx-auto flex-wrap">
+
+@for (product of getFilteredProducts(); track product.id) {
+        <app-product-card style="max-width: 400px;" [product]="product"></app-product-card>
+}
+</div>
+</div>
+
